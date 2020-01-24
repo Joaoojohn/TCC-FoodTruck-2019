@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6064dd4cc5074a0793860bb40a2f9277" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="falcomtccModel.jn_trabalho" Width="1.5" PointX="3" PointY="15.5" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_caixa" Width="1.5" PointX="6" PointY="23.625" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_cliente" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_conta" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_escala" Width="1.5" PointX="3" PointY="4.625" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_estoque" Width="1.5" PointX="3.75" PointY="23.5" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_funcinario" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_holerite" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_login" Width="1.5" PointX="3" PointY="18.25" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_logistica" Width="1.5" PointX="5.75" PointY="18.625" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_pedido_compra" Width="1.5" PointX="3.75" PointY="28.125" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_pedido_compra_item" Width="1.5" PointX="6" PointY="28" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_pedido_venda" Width="1.5" PointX="6" PointY="5.625" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_pedido_venda_item" Width="1.5" PointX="8.25" PointY="5.5" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_produto" Width="1.5" PointX="1.5" PointY="25.875" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_produto_venda" Width="1.5" PointX="6" PointY="1.125" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_salario" Width="1.5" PointX="8.25" PointY="9.5" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_taxa" Width="1.5" PointX="5.25" PointY="9.125" />
+        <AssociationConnector Association="falcomtccModel.jn_trabalho_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_caixa_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_pedido_venda_item_ibfk_3" />
+        <AssociationConnector Association="falcomtccModel.tb_pedido_venda_ibfk_2" />
+        <AssociationConnector Association="falcomtccModel.tb_escala_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_estoque_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_holerite_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_login_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_pedido_venda_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_salario_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_taxa_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_salario_ibfk_2" />
+        <AssociationConnector Association="falcomtccModel.tb_taxa_ibfk_2" />
+        <AssociationConnector Association="falcomtccModel.tb_logistica_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_pedido_compra_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_pedido_compra_item_ibfk_2" />
+        <AssociationConnector Association="falcomtccModel.tb_pedido_compra_item_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_pedido_venda_item_ibfk_2" />
+        <AssociationConnector Association="falcomtccModel.tb_pedido_venda_item_ibfk_1" />
+        <AssociationConnector Association="falcomtccModel.tb_produto_venda_ibfk_1" />
+        <EntityTypeShape EntityType="falcomtccModel.tb_fornecedor" Width="1.5" PointX="10.375" PointY="1" />
+        <AssociationConnector Association="falcomtccModel.tb_estoque_ibfk_2" />
+        <AssociationConnector Association="falcomtccModel.tb_logistica_ibfk_2" />
+        <AssociationConnector Association="falcomtccModel.tb_pedido_compra_ibfk_2" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="falcomtccModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="jn_trabalho">
+          <Key>
+            <PropertyRef Name="id_jntrabalho" />
+          </Key>
+          <Property Name="id_jntrabalho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_funcionario" Type="int" />
+          <Property Name="tb_entrada" Type="time" Precision="0" />
+          <Property Name="tb_saida" Type="time" Precision="0" />
+        </EntityType>
+        <EntityType Name="tb_caixa">
+          <Key>
+            <PropertyRef Name="id_caixa" />
+          </Key>
+          <Property Name="id_caixa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_estoque" Type="int" />
+          <Property Name="vl_produto" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="item_produto" Type="int" />
+          <Property Name="vl_total" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vL_recebido" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_troco" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="fm_dinheiro" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="fm_credito" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="fm_debito" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_prodvenda" Type="int" />
+          <Property Name="nm_cliente" Type="varchar" MaxLength="20" />
+          <Property Name="tl_celular" Type="varchar" MaxLength="9" />
+          <Property Name="CPF" Type="varchar" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="tb_conta">
+          <Key>
+            <PropertyRef Name="id_Contas" />
+          </Key>
+          <Property Name="id_Contas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nm_conta" Type="varchar" MaxLength="20" />
+          <Property Name="tp_conta" Type="varchar" MaxLength="20" />
+          <Property Name="dt_pagamento" Type="date" />
+          <Property Name="dt_vencimento" Type="date" />
+          <Property Name="vl_conta" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_escala">
+          <Key>
+            <PropertyRef Name="id_escala" />
+          </Key>
+          <Property Name="id_escala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_funcionario" Type="int" />
+          <Property Name="ds_semanal" Type="date" />
+          <Property Name="hr_dia" Type="time" Precision="0" />
+          <Property Name="tb_folga" Type="date" />
+        </EntityType>
+        <EntityType Name="tb_estoque">
+          <Key>
+            <PropertyRef Name="id_Estoque" />
+          </Key>
+          <Property Name="id_Estoque" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_produto" Type="int" />
+          <Property Name="id_Fornecedor" Type="int" />
+          <Property Name="ds_produto" Type="varchar" MaxLength="30" />
+          <Property Name="qtd_produto" Type="int" />
+          <Property Name="dt_Entrada" Type="date" />
+          <Property Name="dt_saida" Type="date" />
+          <Property Name="dt_validadeproduto" Type="date" />
+          <Property Name="prc_custo" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="prc_venda" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_fornecedor">
+          <Key>
+            <PropertyRef Name="id_fornecedor" />
+          </Key>
+          <Property Name="id_fornecedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nm_Fornecedor" Type="varchar" MaxLength="25" />
+          <Property Name="nm_endereco" Type="varchar" MaxLength="25" />
+          <Property Name="nm_bairro" Type="varchar" MaxLength="6" />
+          <Property Name="nm_cidade" Type="varchar" MaxLength="15" />
+          <Property Name="tp_pessoaFJ" Type="varchar" MaxLength="15" />
+          <Property Name="tb_email" Type="varchar" MaxLength="25" />
+          <Property Name="razao_social" Type="varchar" MaxLength="20" />
+          <Property Name="doc_CNPJ" Type="varchar" MaxLength="15" />
+          <Property Name="tp_fornecimento" Type="varchar" MaxLength="25" />
+          <Property Name="dt_Contrato" Type="date" />
+          <Property Name="tl_celular" Type="varchar" MaxLength="9" />
+          <Property Name="tl_fixo" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="tb_funcinario">
+          <Key>
+            <PropertyRef Name="id_funcionario" />
+          </Key>
+          <Property Name="id_funcionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nm_funcionario" Type="varchar" MaxLength="20" />
+          <Property Name="tb_sobrenome" Type="varchar" MaxLength="20" />
+          <Property Name="tb_apelido" Type="varchar" MaxLength="20" />
+          <Property Name="dt_nascimento" Type="date" />
+          <Property Name="tb_sexo" Type="varchar" MaxLength="9" />
+          <Property Name="vl_transpote" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_salario" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="tb_RG" Type="varchar" MaxLength="9" />
+          <Property Name="tb_CPF" Type="varchar" MaxLength="11" />
+          <Property Name="nm_endereco" Type="varchar" MaxLength="25" />
+          <Property Name="nm_bairro" Type="varchar" MaxLength="25" />
+          <Property Name="nm_cidade" Type="varchar" MaxLength="25" />
+          <Property Name="nm_numero" Type="varchar" MaxLength="13" />
+          <Property Name="dt_admissao" Type="date" />
+          <Property Name="dt_demissao" Type="date" />
+          <Property Name="tl_celular" Type="varchar" MaxLength="9" />
+          <Property Name="tb_fixo" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="tb_holerite">
+          <Key>
+            <PropertyRef Name="id_holerite" />
+          </Key>
+          <Property Name="id_holerite" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_funcionario" Type="int" />
+          <Property Name="vl_bruto" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_liquido" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="dt_mes_e_ano" Type="date" />
+          <Property Name="vl_inss" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_fgts" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_ir" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="hr_extra" Type="time" Precision="0" />
+          <Property Name="vl_VTransporte" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_VRefeicao" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_VAlimentacao" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_impostoR" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_login">
+          <Key>
+            <PropertyRef Name="id_login" />
+          </Key>
+          <Property Name="id_login" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_funcionario" Type="int" />
+          <Property Name="nm_funcionario" Type="varchar" MaxLength="25" />
+          <Property Name="senha" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="tb_logistica">
+          <Key>
+            <PropertyRef Name="id_logistica" />
+          </Key>
+          <Property Name="id_logistica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_produto" Type="int" />
+          <Property Name="id_fornecedor" Type="int" />
+          <Property Name="nm_produto" Type="varchar" MaxLength="20" />
+          <Property Name="nm_fornecedor" Type="varchar" MaxLength="20" />
+          <Property Name="ds_produto" Type="varchar" MaxLength="30" />
+          <Property Name="tb_saida" Type="datetime" Precision="0" />
+          <Property Name="tb_chegada" Type="datetime" Precision="0" />
+          <Property Name="lc_partida" Type="varchar" MaxLength="30" />
+          <Property Name="ed_fornecedor" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'def.db_a4fb63_truck.tb_obrigatorio' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tb_obrigatorio">
+          <Property Name="id_Obrigatrio" Type="int" />
+          <Property Name="Nm" Type="varchar" MaxLength="20" />
+          <Property Name="valor" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="tb_data" Type="date" />
+          <Property Name="tipo" Type="varchar" MaxLength="20" />
+        </EntityType>-->
+        <EntityType Name="tb_pedido_compra">
+          <Key>
+            <PropertyRef Name="id_pedido_compra" />
+          </Key>
+          <Property Name="id_pedido_compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Fornecedor" Type="int" />
+          <Property Name="dt_pedido" Type="date" />
+          <Property Name="id_produto" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_pedido_compra_item">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_produto" Type="int" />
+          <Property Name="id_pedido_compra" Type="int" />
+          <Property Name="nm_produto" Type="varchar" MaxLength="20" />
+          <Property Name="qt_produto" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_pedido_venda">
+          <Key>
+            <PropertyRef Name="id_pedidovenda" />
+          </Key>
+          <Property Name="id_pedidovenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_funcionario" Type="int" />
+          <Property Name="id_cliente" Type="int" />
+          <Property Name="dt_pedido" Type="date" />
+        </EntityType>
+        <EntityType Name="tb_pedido_venda_item">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pedidovenda" Type="int" />
+          <Property Name="id_produtovenda" Type="int" />
+          <Property Name="id_caixa" Type="int" />
+          <Property Name="qt_produto" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_produto">
+          <Key>
+            <PropertyRef Name="id_produto" />
+          </Key>
+          <Property Name="id_produto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nm_produto" Type="varchar" MaxLength="20" />
+          <Property Name="ds_produto" Type="varchar" MaxLength="30" />
+          <Property Name="nm_marca" Type="varchar" MaxLength="25" />
+          <Property Name="qtd_produto" Type="int" />
+          <Property Name="dt_vencimento" Type="date" />
+          <Property Name="dt_entrada" Type="date" />
+          <Property Name="prc_venda" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="prc_custo" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_produto_venda">
+          <Key>
+            <PropertyRef Name="id_produtovenda" />
+          </Key>
+          <Property Name="id_produtovenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_produto" Type="int" />
+          <Property Name="nm_produto" Type="varchar" MaxLength="20" />
+          <Property Name="ds_produto" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tb_salario">
+          <Key>
+            <PropertyRef Name="id_salario" />
+          </Key>
+          <Property Name="id_salario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_funcionario" Type="int" />
+          <Property Name="id_holerite" Type="int" />
+          <Property Name="vl_salario" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="hr_extra" Type="time" Precision="0" />
+        </EntityType>
+        <EntityType Name="tb_taxa">
+          <Key>
+            <PropertyRef Name="id_taxa" />
+          </Key>
+          <Property Name="id_taxa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_holerite" Type="int" />
+          <Property Name="id_funcionario" Type="int" />
+          <Property Name="vl_inss" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_fgts" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_VTransporte" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_VRefeicao" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="vl_VAlimentacao" Type="decimal" Precision="15" Scale="2" />
+        </EntityType>
+        <Association Name="jn_trabalho_ibfk_1">
+          <End Role="tb_funcinario" Type="Self.tb_funcinario" Multiplicity="0..1" />
+          <End Role="jn_trabalho" Type="Self.jn_trabalho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="jn_trabalho">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_caixa_ibfk_1">
+          <End Role="tb_estoque" Type="Self.tb_estoque" Multiplicity="0..1" />
+          <End Role="tb_caixa" Type="Self.tb_caixa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_estoque">
+              <PropertyRef Name="id_Estoque" />
+            </Principal>
+            <Dependent Role="tb_caixa">
+              <PropertyRef Name="id_estoque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_escala_ibfk_1">
+          <End Role="tb_funcinario" Type="Self.tb_funcinario" Multiplicity="0..1" />
+          <End Role="tb_escala" Type="Self.tb_escala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_escala">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_estoque_ibfk_1">
+          <End Role="tb_produto" Type="Self.tb_produto" Multiplicity="0..1" />
+          <End Role="tb_estoque" Type="Self.tb_estoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_estoque">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_estoque_ibfk_2">
+          <End Role="tb_fornecedor" Type="Self.tb_fornecedor" Multiplicity="0..1" />
+          <End Role="tb_estoque" Type="Self.tb_estoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_fornecedor">
+              <PropertyRef Name="id_fornecedor" />
+            </Principal>
+            <Dependent Role="tb_estoque">
+              <PropertyRef Name="id_Fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_holerite_ibfk_1">
+          <End Role="tb_funcinario" Type="Self.tb_funcinario" Multiplicity="0..1" />
+          <End Role="tb_holerite" Type="Self.tb_holerite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_holerite">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_login_ibfk_1">
+          <End Role="tb_funcinario" Type="Self.tb_funcinario" Multiplicity="0..1" />
+          <End Role="tb_login" Type="Self.tb_login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_login">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_logistica_ibfk_1">
+          <End Role="tb_produto" Type="Self.tb_produto" Multiplicity="0..1" />
+          <End Role="tb_logistica" Type="Self.tb_logistica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_logistica">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_logistica_ibfk_2">
+          <End Role="tb_fornecedor" Type="Self.tb_fornecedor" Multiplicity="0..1" />
+          <End Role="tb_logistica" Type="Self.tb_logistica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_fornecedor">
+              <PropertyRef Name="id_fornecedor" />
+            </Principal>
+            <Dependent Role="tb_logistica">
+              <PropertyRef Name="id_fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_compra_ibfk_1">
+          <End Role="tb_produto" Type="Self.tb_produto" Multiplicity="0..1" />
+          <End Role="tb_pedido_compra" Type="Self.tb_pedido_compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_pedido_compra">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_compra_ibfk_2">
+          <End Role="tb_fornecedor" Type="Self.tb_fornecedor" Multiplicity="0..1" />
+          <End Role="tb_pedido_compra" Type="Self.tb_pedido_compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_fornecedor">
+              <PropertyRef Name="id_fornecedor" />
+            </Principal>
+            <Dependent Role="tb_pedido_compra">
+              <PropertyRef Name="id_Fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_compra_item_ibfk_1">
+          <End Role="tb_produto" Type="Self.tb_produto" Multiplicity="0..1" />
+          <End Role="tb_pedido_compra_item" Type="Self.tb_pedido_compra_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_pedido_compra_item">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_compra_item_ibfk_2">
+          <End Role="tb_pedido_compra" Type="Self.tb_pedido_compra" Multiplicity="0..1" />
+          <End Role="tb_pedido_compra_item" Type="Self.tb_pedido_compra_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_pedido_compra">
+              <PropertyRef Name="id_pedido_compra" />
+            </Principal>
+            <Dependent Role="tb_pedido_compra_item">
+              <PropertyRef Name="id_pedido_compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_ibfk_1">
+          <End Role="tb_funcinario" Type="Self.tb_funcinario" Multiplicity="0..1" />
+          <End Role="tb_pedido_venda" Type="Self.tb_pedido_venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_ibfk_2">
+          <End Role="tb_cliente" Type="Self.tb_cliente" Multiplicity="0..1" />
+          <End Role="tb_pedido_venda" Type="Self.tb_pedido_venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cliente">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_item_ibfk_1">
+          <End Role="tb_produto_venda" Type="Self.tb_produto_venda" Multiplicity="0..1" />
+          <End Role="tb_pedido_venda_item" Type="Self.tb_pedido_venda_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto_venda">
+              <PropertyRef Name="id_produtovenda" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda_item">
+              <PropertyRef Name="id_produtovenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_item_ibfk_2">
+          <End Role="tb_pedido_venda" Type="Self.tb_pedido_venda" Multiplicity="0..1" />
+          <End Role="tb_pedido_venda_item" Type="Self.tb_pedido_venda_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_pedido_venda">
+              <PropertyRef Name="id_pedidovenda" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda_item">
+              <PropertyRef Name="id_pedidovenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_item_ibfk_3">
+          <End Role="tb_caixa" Type="Self.tb_caixa" Multiplicity="0..1" />
+          <End Role="tb_pedido_venda_item" Type="Self.tb_pedido_venda_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_caixa">
+              <PropertyRef Name="id_caixa" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda_item">
+              <PropertyRef Name="id_caixa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_produto_venda_ibfk_1">
+          <End Role="tb_produto" Type="Self.tb_produto" Multiplicity="0..1" />
+          <End Role="tb_produto_venda" Type="Self.tb_produto_venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_produto_venda">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_salario_ibfk_1">
+          <End Role="tb_funcinario" Type="Self.tb_funcinario" Multiplicity="0..1" />
+          <End Role="tb_salario" Type="Self.tb_salario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_salario">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_salario_ibfk_2">
+          <End Role="tb_holerite" Type="Self.tb_holerite" Multiplicity="0..1" />
+          <End Role="tb_salario" Type="Self.tb_salario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_holerite">
+              <PropertyRef Name="id_holerite" />
+            </Principal>
+            <Dependent Role="tb_salario">
+              <PropertyRef Name="id_holerite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_taxa_ibfk_1">
+          <End Role="tb_funcinario" Type="Self.tb_funcinario" Multiplicity="0..1" />
+          <End Role="tb_taxa" Type="Self.tb_taxa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_taxa">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_taxa_ibfk_2">
+          <End Role="tb_holerite" Type="Self.tb_holerite" Multiplicity="0..1" />
+          <End Role="tb_taxa" Type="Self.tb_taxa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_holerite">
+              <PropertyRef Name="id_holerite" />
+            </Principal>
+            <Dependent Role="tb_taxa">
+              <PropertyRef Name="id_holerite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="falcomtccModelStoreContainer">
+          <EntitySet Name="jn_trabalho" EntityType="Self.jn_trabalho" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_caixa" EntityType="Self.tb_caixa" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_conta" EntityType="Self.tb_conta" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_escala" EntityType="Self.tb_escala" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_estoque" EntityType="Self.tb_estoque" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_fornecedor" EntityType="Self.tb_fornecedor" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_funcinario" EntityType="Self.tb_funcinario" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_holerite" EntityType="Self.tb_holerite" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_login" EntityType="Self.tb_login" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_logistica" EntityType="Self.tb_logistica" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_pedido_compra" EntityType="Self.tb_pedido_compra" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_pedido_compra_item" EntityType="Self.tb_pedido_compra_item" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_pedido_venda" EntityType="Self.tb_pedido_venda" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_pedido_venda_item" EntityType="Self.tb_pedido_venda_item" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_produto" EntityType="Self.tb_produto" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_produto_venda" EntityType="Self.tb_produto_venda" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_salario" EntityType="Self.tb_salario" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <EntitySet Name="tb_taxa" EntityType="Self.tb_taxa" Schema="db_a4fb63_truck" store:Type="Tables" />
+          <AssociationSet Name="jn_trabalho_ibfk_1" Association="Self.jn_trabalho_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="jn_trabalho" EntitySet="jn_trabalho" />
+          </AssociationSet>
+          <AssociationSet Name="tb_caixa_ibfk_1" Association="Self.tb_caixa_ibfk_1">
+            <End Role="tb_estoque" EntitySet="tb_estoque" />
+            <End Role="tb_caixa" EntitySet="tb_caixa" />
+          </AssociationSet>
+          <AssociationSet Name="tb_escala_ibfk_1" Association="Self.tb_escala_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_escala" EntitySet="tb_escala" />
+          </AssociationSet>
+          <AssociationSet Name="tb_estoque_ibfk_1" Association="Self.tb_estoque_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_estoque" EntitySet="tb_estoque" />
+          </AssociationSet>
+          <AssociationSet Name="tb_estoque_ibfk_2" Association="Self.tb_estoque_ibfk_2">
+            <End Role="tb_fornecedor" EntitySet="tb_fornecedor" />
+            <End Role="tb_estoque" EntitySet="tb_estoque" />
+          </AssociationSet>
+          <AssociationSet Name="tb_holerite_ibfk_1" Association="Self.tb_holerite_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_holerite" EntitySet="tb_holerite" />
+          </AssociationSet>
+          <AssociationSet Name="tb_login_ibfk_1" Association="Self.tb_login_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_login" EntitySet="tb_login" />
+          </AssociationSet>
+          <AssociationSet Name="tb_logistica_ibfk_1" Association="Self.tb_logistica_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_logistica" EntitySet="tb_logistica" />
+          </AssociationSet>
+          <AssociationSet Name="tb_logistica_ibfk_2" Association="Self.tb_logistica_ibfk_2">
+            <End Role="tb_fornecedor" EntitySet="tb_fornecedor" />
+            <End Role="tb_logistica" EntitySet="tb_logistica" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_compra_ibfk_1" Association="Self.tb_pedido_compra_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_pedido_compra" EntitySet="tb_pedido_compra" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_compra_ibfk_2" Association="Self.tb_pedido_compra_ibfk_2">
+            <End Role="tb_fornecedor" EntitySet="tb_fornecedor" />
+            <End Role="tb_pedido_compra" EntitySet="tb_pedido_compra" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_compra_item_ibfk_1" Association="Self.tb_pedido_compra_item_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_pedido_compra_item" EntitySet="tb_pedido_compra_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_compra_item_ibfk_2" Association="Self.tb_pedido_compra_item_ibfk_2">
+            <End Role="tb_pedido_compra" EntitySet="tb_pedido_compra" />
+            <End Role="tb_pedido_compra_item" EntitySet="tb_pedido_compra_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_ibfk_1" Association="Self.tb_pedido_venda_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_pedido_venda" EntitySet="tb_pedido_venda" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_ibfk_2" Association="Self.tb_pedido_venda_ibfk_2">
+            <End Role="tb_cliente" EntitySet="tb_cliente" />
+            <End Role="tb_pedido_venda" EntitySet="tb_pedido_venda" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_item_ibfk_1" Association="Self.tb_pedido_venda_item_ibfk_1">
+            <End Role="tb_produto_venda" EntitySet="tb_produto_venda" />
+            <End Role="tb_pedido_venda_item" EntitySet="tb_pedido_venda_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_item_ibfk_2" Association="Self.tb_pedido_venda_item_ibfk_2">
+            <End Role="tb_pedido_venda" EntitySet="tb_pedido_venda" />
+            <End Role="tb_pedido_venda_item" EntitySet="tb_pedido_venda_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_item_ibfk_3" Association="Self.tb_pedido_venda_item_ibfk_3">
+            <End Role="tb_caixa" EntitySet="tb_caixa" />
+            <End Role="tb_pedido_venda_item" EntitySet="tb_pedido_venda_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_produto_venda_ibfk_1" Association="Self.tb_produto_venda_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_produto_venda" EntitySet="tb_produto_venda" />
+          </AssociationSet>
+          <AssociationSet Name="tb_salario_ibfk_1" Association="Self.tb_salario_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_salario" EntitySet="tb_salario" />
+          </AssociationSet>
+          <AssociationSet Name="tb_salario_ibfk_2" Association="Self.tb_salario_ibfk_2">
+            <End Role="tb_holerite" EntitySet="tb_holerite" />
+            <End Role="tb_salario" EntitySet="tb_salario" />
+          </AssociationSet>
+          <AssociationSet Name="tb_taxa_ibfk_1" Association="Self.tb_taxa_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_taxa" EntitySet="tb_taxa" />
+          </AssociationSet>
+          <AssociationSet Name="tb_taxa_ibfk_2" Association="Self.tb_taxa_ibfk_2">
+            <End Role="tb_holerite" EntitySet="tb_holerite" />
+            <End Role="tb_taxa" EntitySet="tb_taxa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="falcomtccModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="falcomtccEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="jn_trabalho" EntityType="falcomtccModel.jn_trabalho" />
+          <EntitySet Name="tb_caixa" EntityType="falcomtccModel.tb_caixa" />
+          <EntitySet Name="tb_cliente" EntityType="falcomtccModel.tb_cliente" />
+          <EntitySet Name="tb_conta" EntityType="falcomtccModel.tb_conta" />
+          <EntitySet Name="tb_escala" EntityType="falcomtccModel.tb_escala" />
+          <EntitySet Name="tb_estoque" EntityType="falcomtccModel.tb_estoque" />
+          <EntitySet Name="tb_funcinario" EntityType="falcomtccModel.tb_funcinario" />
+          <EntitySet Name="tb_holerite" EntityType="falcomtccModel.tb_holerite" />
+          <EntitySet Name="tb_login" EntityType="falcomtccModel.tb_login" />
+          <EntitySet Name="tb_logistica" EntityType="falcomtccModel.tb_logistica" />
+          <EntitySet Name="tb_pedido_compra" EntityType="falcomtccModel.tb_pedido_compra" />
+          <EntitySet Name="tb_pedido_compra_item" EntityType="falcomtccModel.tb_pedido_compra_item" />
+          <EntitySet Name="tb_pedido_venda" EntityType="falcomtccModel.tb_pedido_venda" />
+          <EntitySet Name="tb_pedido_venda_item" EntityType="falcomtccModel.tb_pedido_venda_item" />
+          <EntitySet Name="tb_produto" EntityType="falcomtccModel.tb_produto" />
+          <EntitySet Name="tb_produto_venda" EntityType="falcomtccModel.tb_produto_venda" />
+          <EntitySet Name="tb_salario" EntityType="falcomtccModel.tb_salario" />
+          <EntitySet Name="tb_taxa" EntityType="falcomtccModel.tb_taxa" />
+          <AssociationSet Name="jn_trabalho_ibfk_1" Association="falcomtccModel.jn_trabalho_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="jn_trabalho" EntitySet="jn_trabalho" />
+          </AssociationSet>
+          <AssociationSet Name="tb_caixa_ibfk_1" Association="falcomtccModel.tb_caixa_ibfk_1">
+            <End Role="tb_estoque" EntitySet="tb_estoque" />
+            <End Role="tb_caixa" EntitySet="tb_caixa" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_item_ibfk_3" Association="falcomtccModel.tb_pedido_venda_item_ibfk_3">
+            <End Role="tb_caixa" EntitySet="tb_caixa" />
+            <End Role="tb_pedido_venda_item" EntitySet="tb_pedido_venda_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_ibfk_2" Association="falcomtccModel.tb_pedido_venda_ibfk_2">
+            <End Role="tb_cliente" EntitySet="tb_cliente" />
+            <End Role="tb_pedido_venda" EntitySet="tb_pedido_venda" />
+          </AssociationSet>
+          <AssociationSet Name="tb_escala_ibfk_1" Association="falcomtccModel.tb_escala_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_escala" EntitySet="tb_escala" />
+          </AssociationSet>
+          <AssociationSet Name="tb_estoque_ibfk_1" Association="falcomtccModel.tb_estoque_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_estoque" EntitySet="tb_estoque" />
+          </AssociationSet>
+          <AssociationSet Name="tb_holerite_ibfk_1" Association="falcomtccModel.tb_holerite_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_holerite" EntitySet="tb_holerite" />
+          </AssociationSet>
+          <AssociationSet Name="tb_login_ibfk_1" Association="falcomtccModel.tb_login_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_login" EntitySet="tb_login" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_ibfk_1" Association="falcomtccModel.tb_pedido_venda_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_pedido_venda" EntitySet="tb_pedido_venda" />
+          </AssociationSet>
+          <AssociationSet Name="tb_salario_ibfk_1" Association="falcomtccModel.tb_salario_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_salario" EntitySet="tb_salario" />
+          </AssociationSet>
+          <AssociationSet Name="tb_taxa_ibfk_1" Association="falcomtccModel.tb_taxa_ibfk_1">
+            <End Role="tb_funcinario" EntitySet="tb_funcinario" />
+            <End Role="tb_taxa" EntitySet="tb_taxa" />
+          </AssociationSet>
+          <AssociationSet Name="tb_salario_ibfk_2" Association="falcomtccModel.tb_salario_ibfk_2">
+            <End Role="tb_holerite" EntitySet="tb_holerite" />
+            <End Role="tb_salario" EntitySet="tb_salario" />
+          </AssociationSet>
+          <AssociationSet Name="tb_taxa_ibfk_2" Association="falcomtccModel.tb_taxa_ibfk_2">
+            <End Role="tb_holerite" EntitySet="tb_holerite" />
+            <End Role="tb_taxa" EntitySet="tb_taxa" />
+          </AssociationSet>
+          <AssociationSet Name="tb_logistica_ibfk_1" Association="falcomtccModel.tb_logistica_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_logistica" EntitySet="tb_logistica" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_compra_ibfk_1" Association="falcomtccModel.tb_pedido_compra_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_pedido_compra" EntitySet="tb_pedido_compra" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_compra_item_ibfk_2" Association="falcomtccModel.tb_pedido_compra_item_ibfk_2">
+            <End Role="tb_pedido_compra" EntitySet="tb_pedido_compra" />
+            <End Role="tb_pedido_compra_item" EntitySet="tb_pedido_compra_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_compra_item_ibfk_1" Association="falcomtccModel.tb_pedido_compra_item_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_pedido_compra_item" EntitySet="tb_pedido_compra_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_item_ibfk_2" Association="falcomtccModel.tb_pedido_venda_item_ibfk_2">
+            <End Role="tb_pedido_venda" EntitySet="tb_pedido_venda" />
+            <End Role="tb_pedido_venda_item" EntitySet="tb_pedido_venda_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_venda_item_ibfk_1" Association="falcomtccModel.tb_pedido_venda_item_ibfk_1">
+            <End Role="tb_produto_venda" EntitySet="tb_produto_venda" />
+            <End Role="tb_pedido_venda_item" EntitySet="tb_pedido_venda_item" />
+          </AssociationSet>
+          <AssociationSet Name="tb_produto_venda_ibfk_1" Association="falcomtccModel.tb_produto_venda_ibfk_1">
+            <End Role="tb_produto" EntitySet="tb_produto" />
+            <End Role="tb_produto_venda" EntitySet="tb_produto_venda" />
+          </AssociationSet>
+          <EntitySet Name="tb_fornecedor" EntityType="falcomtccModel.tb_fornecedor" />
+          <AssociationSet Name="tb_estoque_ibfk_2" Association="falcomtccModel.tb_estoque_ibfk_2">
+            <End Role="tb_fornecedor" EntitySet="tb_fornecedor" />
+            <End Role="tb_estoque" EntitySet="tb_estoque" />
+          </AssociationSet>
+          <AssociationSet Name="tb_logistica_ibfk_2" Association="falcomtccModel.tb_logistica_ibfk_2">
+            <End Role="tb_fornecedor" EntitySet="tb_fornecedor" />
+            <End Role="tb_logistica" EntitySet="tb_logistica" />
+          </AssociationSet>
+          <AssociationSet Name="tb_pedido_compra_ibfk_2" Association="falcomtccModel.tb_pedido_compra_ibfk_2">
+            <End Role="tb_fornecedor" EntitySet="tb_fornecedor" />
+            <End Role="tb_pedido_compra" EntitySet="tb_pedido_compra" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="jn_trabalho">
+          <Key>
+            <PropertyRef Name="id_jntrabalho" />
+          </Key>
+          <Property Name="id_jntrabalho" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_funcionario" Type="Int32" />
+          <Property Name="tb_entrada" Type="Time" />
+          <Property Name="tb_saida" Type="Time" />
+          <NavigationProperty Name="tb_funcinario" Relationship="falcomtccModel.jn_trabalho_ibfk_1" FromRole="jn_trabalho" ToRole="tb_funcinario" />
+        </EntityType>
+        <EntityType Name="tb_caixa">
+          <Key>
+            <PropertyRef Name="id_caixa" />
+          </Key>
+          <Property Name="id_caixa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_estoque" Type="Int32" />
+          <Property Name="vl_produto" Type="Decimal" />
+          <Property Name="item_produto" Type="Int32" />
+          <Property Name="vl_total" Type="Decimal" />
+          <Property Name="vL_recebido" Type="Decimal" />
+          <Property Name="vl_troco" Type="Decimal" />
+          <Property Name="fm_dinheiro" Type="Decimal" />
+          <Property Name="fm_credito" Type="Decimal" />
+          <Property Name="fm_debito" Type="Decimal" />
+          <NavigationProperty Name="tb_estoque" Relationship="falcomtccModel.tb_caixa_ibfk_1" FromRole="tb_caixa" ToRole="tb_estoque" />
+          <NavigationProperty Name="tb_pedido_venda_item" Relationship="falcomtccModel.tb_pedido_venda_item_ibfk_3" FromRole="tb_caixa" ToRole="tb_pedido_venda_item" />
+        </EntityType>
+        <EntityType Name="tb_cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_prodvenda" Type="Int32" />
+          <Property Name="nm_cliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tl_celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_pedido_venda" Relationship="falcomtccModel.tb_pedido_venda_ibfk_2" FromRole="tb_cliente" ToRole="tb_pedido_venda" />
+        </EntityType>
+        <EntityType Name="tb_conta">
+          <Key>
+            <PropertyRef Name="id_Contas" />
+          </Key>
+          <Property Name="id_Contas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nm_conta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tp_conta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dt_pagamento" Type="DateTime" />
+          <Property Name="dt_vencimento" Type="DateTime" />
+          <Property Name="vl_conta" Type="Decimal" />
+        </EntityType>
+        <EntityType Name="tb_escala">
+          <Key>
+            <PropertyRef Name="id_escala" />
+          </Key>
+          <Property Name="id_escala" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_funcionario" Type="Int32" />
+          <Property Name="ds_semanal" Type="DateTime" />
+          <Property Name="hr_dia" Type="Time" />
+          <Property Name="tb_folga" Type="DateTime" />
+          <NavigationProperty Name="tb_funcinario" Relationship="falcomtccModel.tb_escala_ibfk_1" FromRole="tb_escala" ToRole="tb_funcinario" />
+        </EntityType>
+        <EntityType Name="tb_estoque">
+          <Key>
+            <PropertyRef Name="id_Estoque" />
+          </Key>
+          <Property Name="id_Estoque" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_produto" Type="Int32" />
+          <Property Name="id_Fornecedor" Type="Int32" />
+          <Property Name="ds_produto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="qtd_produto" Type="Int32" />
+          <Property Name="dt_Entrada" Type="DateTime" />
+          <Property Name="dt_saida" Type="DateTime" />
+          <Property Name="dt_validadeproduto" Type="DateTime" />
+          <Property Name="prc_custo" Type="Decimal" />
+          <Property Name="prc_venda" Type="Decimal" />
+          <NavigationProperty Name="tb_caixa" Relationship="falcomtccModel.tb_caixa_ibfk_1" FromRole="tb_estoque" ToRole="tb_caixa" />
+          <NavigationProperty Name="tb_produto" Relationship="falcomtccModel.tb_estoque_ibfk_1" FromRole="tb_estoque" ToRole="tb_produto" />
+          <NavigationProperty Name="tb_fornecedor" Relationship="falcomtccModel.tb_estoque_ibfk_2" FromRole="tb_estoque" ToRole="tb_fornecedor" />
+        </EntityType>
+        <EntityType Name="tb_funcinario">
+          <Key>
+            <PropertyRef Name="id_funcionario" />
+          </Key>
+          <Property Name="id_funcionario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nm_funcionario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tb_sobrenome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="tb_apelido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dt_nascimento" Type="DateTime" />
+          <Property Name="tb_sexo" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="vl_transpote" Type="Decimal" />
+          <Property Name="vl_salario" Type="Decimal" />
+          <Property Name="tb_RG" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="tb_CPF" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="nm_endereco" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="nm_bairro" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="nm_cidade" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="nm_numero" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="dt_admissao" Type="DateTime" />
+          <Property Name="dt_demissao" Type="DateTime" />
+          <Property Name="tl_celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="tb_fixo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="jn_trabalho" Relationship="falcomtccModel.jn_trabalho_ibfk_1" FromRole="tb_funcinario" ToRole="jn_trabalho" />
+          <NavigationProperty Name="tb_escala" Relationship="falcomtccModel.tb_escala_ibfk_1" FromRole="tb_funcinario" ToRole="tb_escala" />
+          <NavigationProperty Name="tb_holerite" Relationship="falcomtccModel.tb_holerite_ibfk_1" FromRole="tb_funcinario" ToRole="tb_holerite" />
+          <NavigationProperty Name="tb_login" Relationship="falcomtccModel.tb_login_ibfk_1" FromRole="tb_funcinario" ToRole="tb_login" />
+          <NavigationProperty Name="tb_pedido_venda" Relationship="falcomtccModel.tb_pedido_venda_ibfk_1" FromRole="tb_funcinario" ToRole="tb_pedido_venda" />
+          <NavigationProperty Name="tb_salario" Relationship="falcomtccModel.tb_salario_ibfk_1" FromRole="tb_funcinario" ToRole="tb_salario" />
+          <NavigationProperty Name="tb_taxa" Relationship="falcomtccModel.tb_taxa_ibfk_1" FromRole="tb_funcinario" ToRole="tb_taxa" />
+        </EntityType>
+        <EntityType Name="tb_holerite">
+          <Key>
+            <PropertyRef Name="id_holerite" />
+          </Key>
+          <Property Name="id_holerite" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_funcionario" Type="Int32" />
+          <Property Name="vl_bruto" Type="Decimal" />
+          <Property Name="vl_liquido" Type="Decimal" />
+          <Property Name="dt_mes_e_ano" Type="DateTime" />
+          <Property Name="vl_inss" Type="Decimal" />
+          <Property Name="vl_fgts" Type="Decimal" />
+          <Property Name="vl_ir" Type="Decimal" />
+          <Property Name="hr_extra" Type="Time" />
+          <Property Name="vl_VTransporte" Type="Decimal" />
+          <Property Name="vl_VRefeicao" Type="Decimal" />
+          <Property Name="vl_VAlimentacao" Type="Decimal" />
+          <Property Name="vl_impostoR" Type="Decimal" />
+          <NavigationProperty Name="tb_funcinario" Relationship="falcomtccModel.tb_holerite_ibfk_1" FromRole="tb_holerite" ToRole="tb_funcinario" />
+          <NavigationProperty Name="tb_salario" Relationship="falcomtccModel.tb_salario_ibfk_2" FromRole="tb_holerite" ToRole="tb_salario" />
+          <NavigationProperty Name="tb_taxa" Relationship="falcomtccModel.tb_taxa_ibfk_2" FromRole="tb_holerite" ToRole="tb_taxa" />
+        </EntityType>
+        <EntityType Name="tb_login">
+          <Key>
+            <PropertyRef Name="id_login" />
+          </Key>
+          <Property Name="id_login" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_funcionario" Type="Int32" />
+          <Property Name="nm_funcionario" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="senha" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_funcinario" Relationship="falcomtccModel.tb_login_ibfk_1" FromRole="tb_login" ToRole="tb_funcinario" />
+        </EntityType>
+        <EntityType Name="tb_logistica">
+          <Key>
+            <PropertyRef Name="id_logistica" />
+          </Key>
+          <Property Name="id_logistica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_produto" Type="Int32" />
+          <Property Name="id_fornecedor" Type="Int32" />
+          <Property Name="nm_produto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nm_fornecedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ds_produto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tb_saida" Type="DateTime" />
+          <Property Name="tb_chegada" Type="DateTime" />
+          <Property Name="lc_partida" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ed_fornecedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_produto" Relationship="falcomtccModel.tb_logistica_ibfk_1" FromRole="tb_logistica" ToRole="tb_produto" />
+          <NavigationProperty Name="tb_fornecedor" Relationship="falcomtccModel.tb_logistica_ibfk_2" FromRole="tb_logistica" ToRole="tb_fornecedor" />
+        </EntityType>
+        <EntityType Name="tb_pedido_compra">
+          <Key>
+            <PropertyRef Name="id_pedido_compra" />
+          </Key>
+          <Property Name="id_pedido_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Fornecedor" Type="Int32" />
+          <Property Name="dt_pedido" Type="DateTime" />
+          <Property Name="id_produto" Type="Int32" />
+          <NavigationProperty Name="tb_produto" Relationship="falcomtccModel.tb_pedido_compra_ibfk_1" FromRole="tb_pedido_compra" ToRole="tb_produto" />
+          <NavigationProperty Name="tb_pedido_compra_item" Relationship="falcomtccModel.tb_pedido_compra_item_ibfk_2" FromRole="tb_pedido_compra" ToRole="tb_pedido_compra_item" />
+          <NavigationProperty Name="tb_fornecedor" Relationship="falcomtccModel.tb_pedido_compra_ibfk_2" FromRole="tb_pedido_compra" ToRole="tb_fornecedor" />
+        </EntityType>
+        <EntityType Name="tb_pedido_compra_item">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_produto" Type="Int32" />
+          <Property Name="id_pedido_compra" Type="Int32" />
+          <Property Name="nm_produto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="qt_produto" Type="Int32" />
+          <NavigationProperty Name="tb_pedido_compra" Relationship="falcomtccModel.tb_pedido_compra_item_ibfk_2" FromRole="tb_pedido_compra_item" ToRole="tb_pedido_compra" />
+          <NavigationProperty Name="tb_produto" Relationship="falcomtccModel.tb_pedido_compra_item_ibfk_1" FromRole="tb_pedido_compra_item" ToRole="tb_produto" />
+        </EntityType>
+        <EntityType Name="tb_pedido_venda">
+          <Key>
+            <PropertyRef Name="id_pedidovenda" />
+          </Key>
+          <Property Name="id_pedidovenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_funcionario" Type="Int32" />
+          <Property Name="id_cliente" Type="Int32" />
+          <Property Name="dt_pedido" Type="DateTime" />
+          <NavigationProperty Name="tb_cliente" Relationship="falcomtccModel.tb_pedido_venda_ibfk_2" FromRole="tb_pedido_venda" ToRole="tb_cliente" />
+          <NavigationProperty Name="tb_funcinario" Relationship="falcomtccModel.tb_pedido_venda_ibfk_1" FromRole="tb_pedido_venda" ToRole="tb_funcinario" />
+          <NavigationProperty Name="tb_pedido_venda_item" Relationship="falcomtccModel.tb_pedido_venda_item_ibfk_2" FromRole="tb_pedido_venda" ToRole="tb_pedido_venda_item" />
+        </EntityType>
+        <EntityType Name="tb_pedido_venda_item">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pedidovenda" Type="Int32" />
+          <Property Name="id_produtovenda" Type="Int32" />
+          <Property Name="id_caixa" Type="Int32" />
+          <Property Name="qt_produto" Type="Int32" />
+          <NavigationProperty Name="tb_caixa" Relationship="falcomtccModel.tb_pedido_venda_item_ibfk_3" FromRole="tb_pedido_venda_item" ToRole="tb_caixa" />
+          <NavigationProperty Name="tb_pedido_venda" Relationship="falcomtccModel.tb_pedido_venda_item_ibfk_2" FromRole="tb_pedido_venda_item" ToRole="tb_pedido_venda" />
+          <NavigationProperty Name="tb_produto_venda" Relationship="falcomtccModel.tb_pedido_venda_item_ibfk_1" FromRole="tb_pedido_venda_item" ToRole="tb_produto_venda" />
+        </EntityType>
+        <EntityType Name="tb_produto">
+          <Key>
+            <PropertyRef Name="id_produto" />
+          </Key>
+          <Property Name="id_produto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nm_produto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ds_produto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nm_marca" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="qtd_produto" Type="Int32" />
+          <Property Name="dt_vencimento" Type="DateTime" />
+          <Property Name="dt_entrada" Type="DateTime" />
+          <Property Name="prc_venda" Type="Decimal" />
+          <Property Name="prc_custo" Type="Decimal" />
+          <NavigationProperty Name="tb_estoque" Relationship="falcomtccModel.tb_estoque_ibfk_1" FromRole="tb_produto" ToRole="tb_estoque" />
+          <NavigationProperty Name="tb_logistica" Relationship="falcomtccModel.tb_logistica_ibfk_1" FromRole="tb_produto" ToRole="tb_logistica" />
+          <NavigationProperty Name="tb_pedido_compra" Relationship="falcomtccModel.tb_pedido_compra_ibfk_1" FromRole="tb_produto" ToRole="tb_pedido_compra" />
+          <NavigationProperty Name="tb_pedido_compra_item" Relationship="falcomtccModel.tb_pedido_compra_item_ibfk_1" FromRole="tb_produto" ToRole="tb_pedido_compra_item" />
+          <NavigationProperty Name="tb_produto_venda" Relationship="falcomtccModel.tb_produto_venda_ibfk_1" FromRole="tb_produto" ToRole="tb_produto_venda" />
+        </EntityType>
+        <EntityType Name="tb_produto_venda">
+          <Key>
+            <PropertyRef Name="id_produtovenda" />
+          </Key>
+          <Property Name="id_produtovenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_produto" Type="Int32" />
+          <Property Name="nm_produto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ds_produto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_pedido_venda_item" Relationship="falcomtccModel.tb_pedido_venda_item_ibfk_1" FromRole="tb_produto_venda" ToRole="tb_pedido_venda_item" />
+          <NavigationProperty Name="tb_produto" Relationship="falcomtccModel.tb_produto_venda_ibfk_1" FromRole="tb_produto_venda" ToRole="tb_produto" />
+        </EntityType>
+        <EntityType Name="tb_salario">
+          <Key>
+            <PropertyRef Name="id_salario" />
+          </Key>
+          <Property Name="id_salario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_funcionario" Type="Int32" />
+          <Property Name="id_holerite" Type="Int32" />
+          <Property Name="vl_salario" Type="Decimal" />
+          <Property Name="hr_extra" Type="Time" />
+          <NavigationProperty Name="tb_funcinario" Relationship="falcomtccModel.tb_salario_ibfk_1" FromRole="tb_salario" ToRole="tb_funcinario" />
+          <NavigationProperty Name="tb_holerite" Relationship="falcomtccModel.tb_salario_ibfk_2" FromRole="tb_salario" ToRole="tb_holerite" />
+        </EntityType>
+        <EntityType Name="tb_taxa">
+          <Key>
+            <PropertyRef Name="id_taxa" />
+          </Key>
+          <Property Name="id_taxa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_holerite" Type="Int32" />
+          <Property Name="id_funcionario" Type="Int32" />
+          <Property Name="vl_inss" Type="Decimal" />
+          <Property Name="vl_fgts" Type="Decimal" />
+          <Property Name="vl_VTransporte" Type="Decimal" />
+          <Property Name="vl_VRefeicao" Type="Decimal" />
+          <Property Name="vl_VAlimentacao" Type="Decimal" />
+          <NavigationProperty Name="tb_funcinario" Relationship="falcomtccModel.tb_taxa_ibfk_1" FromRole="tb_taxa" ToRole="tb_funcinario" />
+          <NavigationProperty Name="tb_holerite" Relationship="falcomtccModel.tb_taxa_ibfk_2" FromRole="tb_taxa" ToRole="tb_holerite" />
+        </EntityType>
+        <Association Name="jn_trabalho_ibfk_1">
+          <End Type="falcomtccModel.tb_funcinario" Role="tb_funcinario" Multiplicity="0..1" />
+          <End Type="falcomtccModel.jn_trabalho" Role="jn_trabalho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="jn_trabalho">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_caixa_ibfk_1">
+          <End Type="falcomtccModel.tb_estoque" Role="tb_estoque" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_caixa" Role="tb_caixa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_estoque">
+              <PropertyRef Name="id_Estoque" />
+            </Principal>
+            <Dependent Role="tb_caixa">
+              <PropertyRef Name="id_estoque" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_item_ibfk_3">
+          <End Type="falcomtccModel.tb_caixa" Role="tb_caixa" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_pedido_venda_item" Role="tb_pedido_venda_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_caixa">
+              <PropertyRef Name="id_caixa" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda_item">
+              <PropertyRef Name="id_caixa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_ibfk_2">
+          <End Type="falcomtccModel.tb_cliente" Role="tb_cliente" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_pedido_venda" Role="tb_pedido_venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_cliente">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_escala_ibfk_1">
+          <End Type="falcomtccModel.tb_funcinario" Role="tb_funcinario" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_escala" Role="tb_escala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_escala">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_estoque_ibfk_1">
+          <End Type="falcomtccModel.tb_produto" Role="tb_produto" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_estoque" Role="tb_estoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_estoque">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_holerite_ibfk_1">
+          <End Type="falcomtccModel.tb_funcinario" Role="tb_funcinario" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_holerite" Role="tb_holerite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_holerite">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_login_ibfk_1">
+          <End Type="falcomtccModel.tb_funcinario" Role="tb_funcinario" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_login" Role="tb_login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_login">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_ibfk_1">
+          <End Type="falcomtccModel.tb_funcinario" Role="tb_funcinario" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_pedido_venda" Role="tb_pedido_venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_salario_ibfk_1">
+          <End Type="falcomtccModel.tb_funcinario" Role="tb_funcinario" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_salario" Role="tb_salario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_salario">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_taxa_ibfk_1">
+          <End Type="falcomtccModel.tb_funcinario" Role="tb_funcinario" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_taxa" Role="tb_taxa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_funcinario">
+              <PropertyRef Name="id_funcionario" />
+            </Principal>
+            <Dependent Role="tb_taxa">
+              <PropertyRef Name="id_funcionario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_salario_ibfk_2">
+          <End Type="falcomtccModel.tb_holerite" Role="tb_holerite" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_salario" Role="tb_salario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_holerite">
+              <PropertyRef Name="id_holerite" />
+            </Principal>
+            <Dependent Role="tb_salario">
+              <PropertyRef Name="id_holerite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_taxa_ibfk_2">
+          <End Type="falcomtccModel.tb_holerite" Role="tb_holerite" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_taxa" Role="tb_taxa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_holerite">
+              <PropertyRef Name="id_holerite" />
+            </Principal>
+            <Dependent Role="tb_taxa">
+              <PropertyRef Name="id_holerite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_logistica_ibfk_1">
+          <End Type="falcomtccModel.tb_produto" Role="tb_produto" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_logistica" Role="tb_logistica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_logistica">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_compra_ibfk_1">
+          <End Type="falcomtccModel.tb_produto" Role="tb_produto" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_pedido_compra" Role="tb_pedido_compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_pedido_compra">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_compra_item_ibfk_2">
+          <End Type="falcomtccModel.tb_pedido_compra" Role="tb_pedido_compra" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_pedido_compra_item" Role="tb_pedido_compra_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_pedido_compra">
+              <PropertyRef Name="id_pedido_compra" />
+            </Principal>
+            <Dependent Role="tb_pedido_compra_item">
+              <PropertyRef Name="id_pedido_compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_compra_item_ibfk_1">
+          <End Type="falcomtccModel.tb_produto" Role="tb_produto" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_pedido_compra_item" Role="tb_pedido_compra_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_pedido_compra_item">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_item_ibfk_2">
+          <End Type="falcomtccModel.tb_pedido_venda" Role="tb_pedido_venda" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_pedido_venda_item" Role="tb_pedido_venda_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_pedido_venda">
+              <PropertyRef Name="id_pedidovenda" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda_item">
+              <PropertyRef Name="id_pedidovenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_venda_item_ibfk_1">
+          <End Type="falcomtccModel.tb_produto_venda" Role="tb_produto_venda" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_pedido_venda_item" Role="tb_pedido_venda_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto_venda">
+              <PropertyRef Name="id_produtovenda" />
+            </Principal>
+            <Dependent Role="tb_pedido_venda_item">
+              <PropertyRef Name="id_produtovenda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_produto_venda_ibfk_1">
+          <End Type="falcomtccModel.tb_produto" Role="tb_produto" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_produto_venda" Role="tb_produto_venda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_produto">
+              <PropertyRef Name="id_produto" />
+            </Principal>
+            <Dependent Role="tb_produto_venda">
+              <PropertyRef Name="id_produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tb_fornecedor">
+          <Key>
+            <PropertyRef Name="id_fornecedor" />
+          </Key>
+          <Property Name="id_fornecedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nm_Fornecedor" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="nm_endereco" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="nm_bairro" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="nm_cidade" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="tp_pessoaFJ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="tb_email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="razao_social" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="doc_CNPJ" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="tp_fornecimento" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="dt_Contrato" Type="DateTime" />
+          <Property Name="tl_celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="tl_fixo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_estoque" Relationship="falcomtccModel.tb_estoque_ibfk_2" FromRole="tb_fornecedor" ToRole="tb_estoque" />
+          <NavigationProperty Name="tb_logistica" Relationship="falcomtccModel.tb_logistica_ibfk_2" FromRole="tb_fornecedor" ToRole="tb_logistica" />
+          <NavigationProperty Name="tb_pedido_compra" Relationship="falcomtccModel.tb_pedido_compra_ibfk_2" FromRole="tb_fornecedor" ToRole="tb_pedido_compra" />
+        </EntityType>
+        <Association Name="tb_estoque_ibfk_2">
+          <End Type="falcomtccModel.tb_fornecedor" Role="tb_fornecedor" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_estoque" Role="tb_estoque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_fornecedor">
+              <PropertyRef Name="id_fornecedor" />
+            </Principal>
+            <Dependent Role="tb_estoque">
+              <PropertyRef Name="id_Fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_logistica_ibfk_2">
+          <End Type="falcomtccModel.tb_fornecedor" Role="tb_fornecedor" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_logistica" Role="tb_logistica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_fornecedor">
+              <PropertyRef Name="id_fornecedor" />
+            </Principal>
+            <Dependent Role="tb_logistica">
+              <PropertyRef Name="id_fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tb_pedido_compra_ibfk_2">
+          <End Type="falcomtccModel.tb_fornecedor" Role="tb_fornecedor" Multiplicity="0..1" />
+          <End Type="falcomtccModel.tb_pedido_compra" Role="tb_pedido_compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_fornecedor">
+              <PropertyRef Name="id_fornecedor" />
+            </Principal>
+            <Dependent Role="tb_pedido_compra">
+              <PropertyRef Name="id_Fornecedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="falcomtccModelStoreContainer" CdmEntityContainer="falcomtccEntities2">
+          <EntitySetMapping Name="jn_trabalho">
+            <EntityTypeMapping TypeName="falcomtccModel.jn_trabalho">
+              <MappingFragment StoreEntitySet="jn_trabalho">
+                <ScalarProperty Name="tb_saida" ColumnName="tb_saida" />
+                <ScalarProperty Name="tb_entrada" ColumnName="tb_entrada" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+                <ScalarProperty Name="id_jntrabalho" ColumnName="id_jntrabalho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_caixa">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_caixa">
+              <MappingFragment StoreEntitySet="tb_caixa">
+                <ScalarProperty Name="fm_debito" ColumnName="fm_debito" />
+                <ScalarProperty Name="fm_credito" ColumnName="fm_credito" />
+                <ScalarProperty Name="fm_dinheiro" ColumnName="fm_dinheiro" />
+                <ScalarProperty Name="vl_troco" ColumnName="vl_troco" />
+                <ScalarProperty Name="vL_recebido" ColumnName="vL_recebido" />
+                <ScalarProperty Name="vl_total" ColumnName="vl_total" />
+                <ScalarProperty Name="item_produto" ColumnName="item_produto" />
+                <ScalarProperty Name="vl_produto" ColumnName="vl_produto" />
+                <ScalarProperty Name="id_estoque" ColumnName="id_estoque" />
+                <ScalarProperty Name="id_caixa" ColumnName="id_caixa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_cliente">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_cliente">
+              <MappingFragment StoreEntitySet="tb_cliente">
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="tl_celular" ColumnName="tl_celular" />
+                <ScalarProperty Name="nm_cliente" ColumnName="nm_cliente" />
+                <ScalarProperty Name="id_prodvenda" ColumnName="id_prodvenda" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_conta">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_conta">
+              <MappingFragment StoreEntitySet="tb_conta">
+                <ScalarProperty Name="vl_conta" ColumnName="vl_conta" />
+                <ScalarProperty Name="dt_vencimento" ColumnName="dt_vencimento" />
+                <ScalarProperty Name="dt_pagamento" ColumnName="dt_pagamento" />
+                <ScalarProperty Name="tp_conta" ColumnName="tp_conta" />
+                <ScalarProperty Name="nm_conta" ColumnName="nm_conta" />
+                <ScalarProperty Name="id_Contas" ColumnName="id_Contas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_escala">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_escala">
+              <MappingFragment StoreEntitySet="tb_escala">
+                <ScalarProperty Name="tb_folga" ColumnName="tb_folga" />
+                <ScalarProperty Name="hr_dia" ColumnName="hr_dia" />
+                <ScalarProperty Name="ds_semanal" ColumnName="ds_semanal" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+                <ScalarProperty Name="id_escala" ColumnName="id_escala" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_estoque">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_estoque">
+              <MappingFragment StoreEntitySet="tb_estoque">
+                <ScalarProperty Name="prc_venda" ColumnName="prc_venda" />
+                <ScalarProperty Name="prc_custo" ColumnName="prc_custo" />
+                <ScalarProperty Name="dt_validadeproduto" ColumnName="dt_validadeproduto" />
+                <ScalarProperty Name="dt_saida" ColumnName="dt_saida" />
+                <ScalarProperty Name="dt_Entrada" ColumnName="dt_Entrada" />
+                <ScalarProperty Name="qtd_produto" ColumnName="qtd_produto" />
+                <ScalarProperty Name="ds_produto" ColumnName="ds_produto" />
+                <ScalarProperty Name="id_Fornecedor" ColumnName="id_Fornecedor" />
+                <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+                <ScalarProperty Name="id_Estoque" ColumnName="id_Estoque" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_funcinario">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_funcinario">
+              <MappingFragment StoreEntitySet="tb_funcinario">
+                <ScalarProperty Name="tb_fixo" ColumnName="tb_fixo" />
+                <ScalarProperty Name="tl_celular" ColumnName="tl_celular" />
+                <ScalarProperty Name="dt_demissao" ColumnName="dt_demissao" />
+                <ScalarProperty Name="dt_admissao" ColumnName="dt_admissao" />
+                <ScalarProperty Name="nm_numero" ColumnName="nm_numero" />
+                <ScalarProperty Name="nm_cidade" ColumnName="nm_cidade" />
+                <ScalarProperty Name="nm_bairro" ColumnName="nm_bairro" />
+                <ScalarProperty Name="nm_endereco" ColumnName="nm_endereco" />
+                <ScalarProperty Name="tb_CPF" ColumnName="tb_CPF" />
+                <ScalarProperty Name="tb_RG" ColumnName="tb_RG" />
+                <ScalarProperty Name="vl_salario" ColumnName="vl_salario" />
+                <ScalarProperty Name="vl_transpote" ColumnName="vl_transpote" />
+                <ScalarProperty Name="tb_sexo" ColumnName="tb_sexo" />
+                <ScalarProperty Name="dt_nascimento" ColumnName="dt_nascimento" />
+                <ScalarProperty Name="tb_apelido" ColumnName="tb_apelido" />
+                <ScalarProperty Name="tb_sobrenome" ColumnName="tb_sobrenome" />
+                <ScalarProperty Name="nm_funcionario" ColumnName="nm_funcionario" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_holerite">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_holerite">
+              <MappingFragment StoreEntitySet="tb_holerite">
+                <ScalarProperty Name="vl_impostoR" ColumnName="vl_impostoR" />
+                <ScalarProperty Name="vl_VAlimentacao" ColumnName="vl_VAlimentacao" />
+                <ScalarProperty Name="vl_VRefeicao" ColumnName="vl_VRefeicao" />
+                <ScalarProperty Name="vl_VTransporte" ColumnName="vl_VTransporte" />
+                <ScalarProperty Name="hr_extra" ColumnName="hr_extra" />
+                <ScalarProperty Name="vl_ir" ColumnName="vl_ir" />
+                <ScalarProperty Name="vl_fgts" ColumnName="vl_fgts" />
+                <ScalarProperty Name="vl_inss" ColumnName="vl_inss" />
+                <ScalarProperty Name="dt_mes_e_ano" ColumnName="dt_mes_e_ano" />
+                <ScalarProperty Name="vl_liquido" ColumnName="vl_liquido" />
+                <ScalarProperty Name="vl_bruto" ColumnName="vl_bruto" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+                <ScalarProperty Name="id_holerite" ColumnName="id_holerite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_login">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_login">
+              <MappingFragment StoreEntitySet="tb_login">
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="nm_funcionario" ColumnName="nm_funcionario" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+                <ScalarProperty Name="id_login" ColumnName="id_login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_logistica">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_logistica">
+              <MappingFragment StoreEntitySet="tb_logistica">
+                <ScalarProperty Name="ed_fornecedor" ColumnName="ed_fornecedor" />
+                <ScalarProperty Name="lc_partida" ColumnName="lc_partida" />
+                <ScalarProperty Name="tb_chegada" ColumnName="tb_chegada" />
+                <ScalarProperty Name="tb_saida" ColumnName="tb_saida" />
+                <ScalarProperty Name="ds_produto" ColumnName="ds_produto" />
+                <ScalarProperty Name="nm_fornecedor" ColumnName="nm_fornecedor" />
+                <ScalarProperty Name="nm_produto" ColumnName="nm_produto" />
+                <ScalarProperty Name="id_fornecedor" ColumnName="id_fornecedor" />
+                <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+                <ScalarProperty Name="id_logistica" ColumnName="id_logistica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_pedido_compra">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_pedido_compra">
+              <MappingFragment StoreEntitySet="tb_pedido_compra">
+                <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+                <ScalarProperty Name="dt_pedido" ColumnName="dt_pedido" />
+                <ScalarProperty Name="id_Fornecedor" ColumnName="id_Fornecedor" />
+                <ScalarProperty Name="id_pedido_compra" ColumnName="id_pedido_compra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_pedido_compra_item">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_pedido_compra_item">
+              <MappingFragment StoreEntitySet="tb_pedido_compra_item">
+                <ScalarProperty Name="qt_produto" ColumnName="qt_produto" />
+                <ScalarProperty Name="nm_produto" ColumnName="nm_produto" />
+                <ScalarProperty Name="id_pedido_compra" ColumnName="id_pedido_compra" />
+                <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+                <ScalarProperty Name="id_item" ColumnName="id_item" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_pedido_venda">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_pedido_venda">
+              <MappingFragment StoreEntitySet="tb_pedido_venda">
+                <ScalarProperty Name="dt_pedido" ColumnName="dt_pedido" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+                <ScalarProperty Name="id_pedidovenda" ColumnName="id_pedidovenda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_pedido_venda_item">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_pedido_venda_item">
+              <MappingFragment StoreEntitySet="tb_pedido_venda_item">
+                <ScalarProperty Name="qt_produto" ColumnName="qt_produto" />
+                <ScalarProperty Name="id_caixa" ColumnName="id_caixa" />
+                <ScalarProperty Name="id_produtovenda" ColumnName="id_produtovenda" />
+                <ScalarProperty Name="id_pedidovenda" ColumnName="id_pedidovenda" />
+                <ScalarProperty Name="id_item" ColumnName="id_item" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_produto">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_produto">
+              <MappingFragment StoreEntitySet="tb_produto">
+                <ScalarProperty Name="prc_custo" ColumnName="prc_custo" />
+                <ScalarProperty Name="prc_venda" ColumnName="prc_venda" />
+                <ScalarProperty Name="dt_entrada" ColumnName="dt_entrada" />
+                <ScalarProperty Name="dt_vencimento" ColumnName="dt_vencimento" />
+                <ScalarProperty Name="qtd_produto" ColumnName="qtd_produto" />
+                <ScalarProperty Name="nm_marca" ColumnName="nm_marca" />
+                <ScalarProperty Name="ds_produto" ColumnName="ds_produto" />
+                <ScalarProperty Name="nm_produto" ColumnName="nm_produto" />
+                <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_produto_venda">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_produto_venda">
+              <MappingFragment StoreEntitySet="tb_produto_venda">
+                <ScalarProperty Name="ds_produto" ColumnName="ds_produto" />
+                <ScalarProperty Name="nm_produto" ColumnName="nm_produto" />
+                <ScalarProperty Name="id_produto" ColumnName="id_produto" />
+                <ScalarProperty Name="id_produtovenda" ColumnName="id_produtovenda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_salario">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_salario">
+              <MappingFragment StoreEntitySet="tb_salario">
+                <ScalarProperty Name="hr_extra" ColumnName="hr_extra" />
+                <ScalarProperty Name="vl_salario" ColumnName="vl_salario" />
+                <ScalarProperty Name="id_holerite" ColumnName="id_holerite" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+                <ScalarProperty Name="id_salario" ColumnName="id_salario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_taxa">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_taxa">
+              <MappingFragment StoreEntitySet="tb_taxa">
+                <ScalarProperty Name="vl_VAlimentacao" ColumnName="vl_VAlimentacao" />
+                <ScalarProperty Name="vl_VRefeicao" ColumnName="vl_VRefeicao" />
+                <ScalarProperty Name="vl_VTransporte" ColumnName="vl_VTransporte" />
+                <ScalarProperty Name="vl_fgts" ColumnName="vl_fgts" />
+                <ScalarProperty Name="vl_inss" ColumnName="vl_inss" />
+                <ScalarProperty Name="id_funcionario" ColumnName="id_funcionario" />
+                <ScalarProperty Name="id_holerite" ColumnName="id_holerite" />
+                <ScalarProperty Name="id_taxa" ColumnName="id_taxa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_fornecedor">
+            <EntityTypeMapping TypeName="falcomtccModel.tb_fornecedor">
+              <MappingFragment StoreEntitySet="tb_fornecedor">
+                <ScalarProperty Name="tl_fixo" ColumnName="tl_fixo" />
+                <ScalarProperty Name="tl_celular" ColumnName="tl_celular" />
+                <ScalarProperty Name="dt_Contrato" ColumnName="dt_Contrato" />
+                <ScalarProperty Name="tp_fornecimento" ColumnName="tp_fornecimento" />
+                <ScalarProperty Name="doc_CNPJ" ColumnName="doc_CNPJ" />
+                <ScalarProperty Name="razao_social" ColumnName="razao_social" />
+                <ScalarProperty Name="tb_email" ColumnName="tb_email" />
+                <ScalarProperty Name="tp_pessoaFJ" ColumnName="tp_pessoaFJ" />
+                <ScalarProperty Name="nm_cidade" ColumnName="nm_cidade" />
+                <ScalarProperty Name="nm_bairro" ColumnName="nm_bairro" />
+                <ScalarProperty Name="nm_endereco" ColumnName="nm_endereco" />
+                <ScalarProperty Name="nm_Fornecedor" ColumnName="nm_Fornecedor" />
+                <ScalarProperty Name="id_fornecedor" ColumnName="id_fornecedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
