@@ -2,8 +2,6 @@
 
 *TCC desenvolvido para o "Instituto Social Nossa Senhora de Fátima"* 
 
-Programa Desktop, utlizando as seguintes tecnologias: C#, MySql e Entity Framework, API Whatsapp/SMS (Twilio) e, IBM Watson 
-
- O TCC é na verdade um projeto integrador, junto com um grupo de administração do Instituto. A ideia era fazer diversas reuniões com o grupo, e desenvolver o que era solicitado por eles.
+Tecnologias utilizadas no projeto: Windows Forms; C#; Entity Framework; MySql; APIs Twilio para envio de mensagens: Whatsapp, e SMS; Utilização do IBM Watson, para comandos de voz.
    
-
+O objetivo do projeto, era atender às necessidades de uma empresa ficticia (criada por alunos de outros cursos da instuição).
